@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/confirmar"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundtela_3"
+    android:onClick="onClick">
+
+
+    <TextView
+        android:id="@+id/playerInfoTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_marginStart="116dp"
+        android:text="Informações do Jogador"
+        app:layout_constraintBaseline_toBaselineOf="@+id/Tempo"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/Tempo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/avatarTela"
+        android:layout_width="66dp"
+        android:layout_height="73dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="56dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/forca"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="12dp"
+        android:text="FORCA"
+        app:layout_constraintStart_toEndOf="@+id/avatarTela"
+        app:layout_constraintTop_toBottomOf="@+id/avatarTela" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="35dp"
+        app:layout_constraintStart_toStartOf="@+id/forca"
+        app:layout_constraintTop_toBottomOf="@+id/forca" />
+
+    <ImageView
+        android:id="@+id/ImageForca"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="332dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/forca"
+        app:layout_constraintVertical_bias="0.54"
+        app:srcCompat="@drawable/parte_0" />
+
+    <TextView
+        android:id="@+id/Letras"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ImageForca" />
+
+    <Button
+        android:id="@+id/buA"
+        android:layout_width="62dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:onClick="onClick"
+        android:text="A"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.02"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Letras"
+        app:layout_constraintVertical_bias="0.057" />
+
+    <Button
+        android:id="@+id/buV"
+        android:layout_width="62dp"
+        android:layout_height="43dp"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:onClick="onClick"
+        android:text="V"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.02"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Letras"
+        app:layout_constraintVertical_bias="0.885" />
+
+    <Button
+        android:id="@+id/buQ"
+        android:layout_width="62dp"
+        android:layout_height="43dp"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:onClick="onClick"
+        android:text="Q"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.02"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Letras"
+        app:layout_constraintVertical_bias="0.676" />
+
+    <Button
+        android:id="@+id/buG"
+        android:layout_width="62dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:text="G"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.02"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Letras"
+        app:layout_constraintVertical_bias="0.301" />
+
+    <Button
+        android:id="@+id/buL"
+        android:layout_width="62dp"
+        android:layout_height="43dp"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:onClick="onClick"
+        android:text="L"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.02"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Letras"
+        app:layout_constraintVertical_bias="0.493" />
+
+    <Button
+        android:id="@+id/buF"
+        android:layout_width="62dp"
+        android:layout_height="43dp"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:onClick="onClick"
+        android:text="F"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.914"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Letras"
+        app:layout_constraintVertical_bias="0.129" />
+
+    <Button
+        android:id="@+id/buB"
+        android:layout_width="62dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:onClick="onClick"
+        android:text="B"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.197"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Letras"
+        app:layout_constraintVertical_bias="0.057" />
+
+    <Button
+        android:id="@+id/buW"
+        android:layout_width="62dp"
+        android:layout_height="43dp"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:onClick="onClick"
+        android:text="W"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.197"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Letras"
+        app:layout_constraintVertical_bias="0.885" />
+
+    <Button
+        android:id="@+id/buR"
+        android:layout_width="62dp"
+        android:layout_height="43dp"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:onClick="onClick"
+        android:text="R"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.197"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Letras"
+        app:layout_constraintVertical_bias="0.672" />
+
+
+    <Button
+        android:id="@+id/buH"
+        android:layout_width="62dp"
+        android:layout_height="43dp"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:onClick="onClick"
+        android:text="H"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.197"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Letras"
+        app:layout_constraintVertical_bias="0.326" />
+
+    <Button
+        android:id="@+id/buM"
+        android:layout_width="62dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="116dp"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:onClick="onClick"
+        android:text="M"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.197"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Letras"
+        app:layout_constraintVertical_bias="0.134" />
+
+    <Button
+        android:id="@+id/buE"
+        android:layout_width="62dp"
+        android:layout_height="43dp"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:onClick="onClick"
+        android:text="E"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.736"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Letras"
+        app:layout_constraintVertical_bias="0.129" />
+
+    <Button
+        android:id="@+id/buZ"
+        android:layout_width="62dp"
+        android:layout_height="43dp"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:onClick="onClick"
+        android:text="Z"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.736"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Letras"
+        app:layout_constraintVertical_bias="0.885" />
+
+    <Button
+        android:id="@+id/buP"
+        android:layout_width="62dp"
+        android:layout_height="43dp"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:onClick="onClick"
+        android:text="P"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.736"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Letras"
+        app:layout_constraintVertical_bias="0.494" />
+
+    <Button
+        android:id="@+id/buU"
+        android:layout_width="62dp"
+        android:layout_height="43dp"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:onClick="onClick"
+        android:text="U"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.736"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Letras"
+        app:layout_constraintVertical_bias="0.676" />
+
+    <Button
+        android:id="@+id/buK"
+        android:layout_width="62dp"
+        android:layout_height="43dp"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:onClick="onClick"
+        android:text="K"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.736"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Letras"
+        app:layout_constraintVertical_bias="0.323" />
+
+    <Button
+        android:id="@+id/buC"
+        android:layout_width="62dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:onClick="onClick"
+        android:text="C"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.381"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Letras"
+        app:layout_constraintVertical_bias="0.053" />
+
+    <Button
+        android:id="@+id/buX"
+        android:layout_width="62dp"
+        android:layout_height="43dp"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:onClick="onClick"
+        android:text="X"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.381"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Letras"
+        app:layout_constraintVertical_bias="0.885" />
+
+    <Button
+        android:id="@+id/buS"
+        android:layout_width="62dp"
+        android:layout_height="43dp"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:onClick="onClick"
+        android:text="S"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.381"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Letras"
+        app:layout_constraintVertical_bias="0.673" />
+
+    <Button
+        android:id="@+id/buN"
+        android:layout_width="62dp"
+        android:layout_height="43dp"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:onClick="onClick"
+        android:text="N"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.381"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Letras"
+        app:layout_constraintVertical_bias="0.485" />
+
+    <Button
+        android:id="@+id/buI"
+        android:layout_width="62dp"
+        android:layout_height="43dp"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:onClick="onClick"
+        android:text="I"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.381"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Letras"
+        app:layout_constraintVertical_bias="0.323" />
+
+    <Button
+        android:id="@+id/buD"
+        android:layout_width="62dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:onClick="onClick"
+        android:text="D"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.558"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Letras"
+        app:layout_constraintVertical_bias="0.057" />
+
+    <Button
+        android:id="@+id/buY"
+        android:layout_width="62dp"
+        android:layout_height="43dp"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:onClick="onClick"
+        android:text="Y"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.558"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Letras"
+        app:layout_constraintVertical_bias="0.885" />
+
+    <Button
+        android:id="@+id/buT"
+        android:layout_width="62dp"
+        android:layout_height="43dp"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:onClick="onClick"
+        android:text="T"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.558"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Letras"
+        app:layout_constraintVertical_bias="0.673" />
+
+    <Button
+        android:id="@+id/buO"
+        android:layout_width="62dp"
+        android:layout_height="43dp"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:onClick="onClick"
+        android:text="O"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.558"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Letras"
+        app:layout_constraintVertical_bias="0.494" />
+
+    <Button
+        android:id="@+id/buconfirmar"
+        android:layout_width="62dp"
+        android:layout_height="43dp"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:onClick="onClick"
+        android:text="#"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.914"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Letras"
+        app:layout_constraintVertical_bias="0.326" />
+
+    <Button
+        android:id="@+id/buJ"
+        android:layout_width="62dp"
+        android:layout_height="43dp"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:onClick="onClick"
+        android:text="J"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.558"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Letras"
+        app:layout_constraintVertical_bias="0.323" />
+
+    <TextView
+        android:id="@+id/editLetra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Letras"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.299"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ImageForca"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tentativa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="17dp"
+        tools:layout_editor_absoluteY="408dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
