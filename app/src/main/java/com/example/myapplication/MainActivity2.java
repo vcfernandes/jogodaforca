@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import com.google.android.material.button.MaterialButton;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,6 +9,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -50,7 +52,7 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
     private TextView editLetra;
     private TextView textTentativas;
 
-    private StringBuilder letrasTentadas;
+    private List<String> letrasDigitadas;
 
     private Button buA;
     private Button buB;
@@ -90,7 +92,7 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_main2);
 
         Letras = findViewById(R.id.Letras);
-
+        letrasDigitadas = new ArrayList<>();
         playerInfoTextView = findViewById(R.id.playerInfoTextView);
         timeTextView = findViewById(R.id.Tempo);
         hangmanTextView = findViewById(R.id.forca);
@@ -109,15 +111,10 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
         String texto = getIntent().getStringExtra("texto");
         textV.setText(texto);
 
-        palavras = new ArrayList<>();
-        palavras.add("android");
-        palavras.add("java");
-        palavras.add("kotlin");
-
+        palavras = MainActivity.getMeuBancoDeDadosHelper().getPalavras();
 
         inicializando();
         verificarLetras();
-
     }
 
     public void verificarLetras(){
@@ -151,11 +148,9 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View view) {
 
-        ImageButton button = (ImageButton) view;
-        String letra = button.getTag().toString().toLowerCase();
+        Button button = (Button) view;
+        String letra = button.getText().toString().toLowerCase();
 
-        // Definir a letra capturada no EditText
-        editLetra.setText(letra);
     }
 
     public void inicializando() {
@@ -189,26 +184,49 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
 
         Tempo = findViewById(R.id.Tempo);
         ImageForca = findViewById(R.id.ImageForca);
-        confirmar = findViewById(R.id.confirmar);
+        confirmar = findViewById(R.id.buconfirmar);
         editLetra = findViewById(R.id.editLetra);
         Letras = findViewById(R.id.Letras);
         textTentativas = findViewById(R.id.tentativa);
-
-        letrasTentadas = new StringBuilder();
         clickLetras();
 
-        confirmar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String letra = editLetra.getText().toString().toLowerCase();
-                if (letra.length() == 1 && letra(letra.charAt(0))) {
-                    verificarLetra(letra.charAt(0));
-                    editLetra.setText("");
-                } else {
-                    Toast.makeText(MainActivity2.this, "digite apenas uma letra", Toast.LENGTH_LONG);
-                }
-            }
-        });
+        Button[] botoes = new Button[]{
+                buA,
+                buB,
+                buC,
+                buD,
+                buE,
+                buF,
+                buG,
+                buH,
+                buI,
+                buJ,
+                buK,
+                buL,
+                buM,
+                buN,
+                buO,
+                buP,
+                buQ,
+                buR,
+                buS,
+                buT,
+                buU,
+                buV,
+                buW,
+                buX,
+                buY,
+                buZ
+        };
+
+        for (Button botao : botoes) {
+            botao.setOnClickListener(v -> {
+                Button button = (Button)v;
+                String letra = button.getText().toString().toLowerCase();
+                verificarLetra(letra);
+            });
+        }
+
         duracaoInicial = 15;
         duracaoCronometro = duracaoInicial;
         inicalizarJogo();
@@ -309,34 +327,46 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
         atualizarTela();
     }
 
-    private void verificarLetra(char letra) {
-        boolean encontrou = false;
-        boolean letraDigitada = letrasTentadas.toString().contains(String.valueOf(letra));
-
-        if(letraDigitada){
-            Toast.makeText(MainActivity2.this, "Letra já digitada", Toast.LENGTH_LONG).show();
-            tentativasRestantes--;
-            atualizarTela();
-            return;
-        }
+    private String construirPalavra() {
+        StringBuilder palavra = new StringBuilder();
         for (int i = 0; i < palavraSecreta.length(); i++) {
-            if (palavraSecreta.charAt(i) == letra) {
-                encontrou = true;
-                palavraAdivinhada.setCharAt(i, letra);
+            String letra = String.valueOf(palavraSecreta.charAt(i));
+            if (letrasDigitadas.contains(letra)) {
+                palavra.append(letra);
+            } else {
+                palavra.append("_");
             }
         }
+        Log.d("palavra", palavra.toString());
+        return palavra.toString();
+    }
 
-        if (!encontrou) {
-            Toast.makeText(MainActivity2.this, "Errou", Toast.LENGTH_LONG).show();
-            letrasTentadas.append(letra).append(" ");
-            textTentativas.setText(letrasTentadas.toString());
-            tentativasRestantes--;
-        }else {
-            letrasTentadas.append(letra).append(" ");
+    private void construirAtualizarPalavra() {
+        TextView tentativa = findViewById(R.id.Letras);
+        tentativa.setText(construirPalavra());
+    }
 
+    private void verificarVitoria() {
+        if (!construirPalavra().contains("_")) {
+            // TODO: Venceu
         }
-        Letras.setText(palavraAdivinhada.toString());
-        textTentativas.setText(letrasTentadas.toString());
+    }
+
+    private void verificarLetra(String letra) {
+        if (letrasDigitadas.contains(String.valueOf(letra))) {
+            Toast.makeText(this, "Letra já digitada", Toast.LENGTH_LONG).show();
+            return;
+        }
+        letrasDigitadas.add(letra);
+
+        if (!palavraSecreta.toLowerCase().contains(letra.toLowerCase())) {
+            tentativasRestantes--;
+            Toast.makeText(this, "Letra errada", Toast.LENGTH_LONG).show();
+        } else {
+            construirAtualizarPalavra();
+            verificarVitoria();
+            Toast.makeText(this, "Letra correta!", Toast.LENGTH_SHORT).show();
+        }
         atualizarTela();
     }
 
@@ -378,7 +408,7 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
     }
 
     private void reiniciarJogo() {
-        letrasTentadas.setLength(0);
+        letrasDigitadas.clear();
         textTentativas.setText("");
         duracaoCronometro = duracaoInicial;
         inicalizarJogo();
