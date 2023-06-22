@@ -10,9 +10,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.example.myapplication.banco.MeuBancoDeDadosHelper;
+
 public class MainActivity extends AppCompatActivity {
 
-
+    private static MeuBancoDeDadosHelper meuBancoDeDadosHelper;
     private Button jogo;
 
 
@@ -20,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        meuBancoDeDadosHelper = new MeuBancoDeDadosHelper(this);
 
         Button jogo = findViewById(R.id.jogo);
         jogo.setOnClickListener(new View.OnClickListener() {
@@ -32,5 +35,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public static MeuBancoDeDadosHelper getMeuBancoDeDadosHelper() {
+        return meuBancoDeDadosHelper;
+    }
 
 }
